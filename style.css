@@ -1,0 +1,534 @@
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+}
+  
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+@font-face {
+  font-family: "The Devil Net";
+  src: url("./font/The\ Devil\ Net.ttf");
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url("devil_sky.jpg");
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    max-width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+}
+
+/* Welcome section */
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  }
+
+.welcome-section > h2 {
+  color: #ff0202;
+  }
+
+.welcome-section > h1 {
+  color: blue;
+}
+
+.welcome-section > p {
+  font-size: 3.3rem;
+  font-weight: bold;
+  text-shadow: 30px 30px 15px #080808;
+  color: rgb(247, 155, 247);
+}
+
+@media only screen and (max-width: 767px) {
+  .welcome-section {
+    position: relative;
+    top: -35px;
+  }
+}
+
+.hashtag {
+  text-align: center;
+  justify-content: center;
+  color: rgb(248, 97, 248);
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+
+h1 {
+  font-size: 6rem;
+  text-shadow: 26px 26px 11px #080808;
+}
+
+#coin {
+  text-align: center;
+  color: #229ED9;
+}
+
+h2 {
+  font-weight: 700;
+  text-align: center;
+  font-family: "The Devil Net";
+  font-size: 4.2rem;
+  text-shadow: 30px 30px 15px #080808;
+  color: red;
+}
+
+h3 {
+  text-align: center;
+  padding-top: 3rem;
+  color: #303841;
+}
+
+h4 {
+  text-align: center;
+  padding-top: 1rem;
+  justify-content: center;
+  color: #303841;
+}
+
+.Solana {
+  text-align: center;
+  color: rgb(248, 97, 248);
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.Address {
+  text-align: center;
+  color: #303841;
+}
+
+
+@media only screen and (max-width: 767px) {
+  h3, h4 {
+    color: white
+  }
+}
+
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  .nav {
+    justify-content: right;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-details {
+  font-size: 2.4rem;
+  text-shadow: 30px 30px 15px #080808;
+  transition: transform 0.18s ease-out;
+}
+
+.nav-details:hover {
+  transform: translateY(8px);
+  color: #29d0d9;
+}
+
+
+
+
+
+.imported-icon {
+  width: 45px;
+  height: 45px;
+  color: #f0f0f0;
+}
+
+
+/* "Automagic" image grid using no media queries */
+
+
+
+/* Project Image Hover */
+
+.container {
+  position: relative;
+ 
+}
+
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1.25px #fff, 0 0 2.5px #fff, 0 0 5px #e60073, 0 0 10px #e60073, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 1.87px #fff, 0 0 3.13px #ff4da6, 0 0 4.38px #ff4da6, 0 0 5.63px #ff4da6, 0 0 6.875px #ff4da6, 0 0 8.13px #ff4da6, 0 0 9.38px #ff4da6;
+  }
+}
+
+
+
+/* End Product Image Hover */
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+}
+
+.contact-section-header > h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header > p {
+  font-size: 3.3rem;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--main-red);
+  text-shadow: 30px 30px 15px #080808;
+  
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 30px 30px 15px #080808;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+  color: #29d0d9;
+}
+
+#reptile_agents {
+  position:fixed;
+  bottom:-1px;
+  left:40%;
+
+}
+
+@media only screen and (max-width: 767px) {
+  img {
+    max-width: 100%; /* Adjust the percentage as needed */
+    height: auto;
+  }
+}
+
+#demon {
+  margin-left: -10rem;
+  margin-top: -15rem;
+}
+
+@media only screen and (max-width: 767px) {
+  #demon {
+    width: 80%; /* Adjust as needed to make the image smaller */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+    padding-left: 15%;
+    padding-top: 10%;
+  }
+
+  .Solana {
+    font-size: xx-large;
+  }
+
+  h4 {
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #reptile_agents {
+    width: 50%; /* Adjust as needed to make the image smaller */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+    position: fixed;
+  }
+}
+
+/* Media query for landscape orientation (iPhones) */
+@media only screen and (min-device-width: 320px) and (max-device-width: 950px) and (orientation: landscape) {
+  #demon {
+    width: 35%;
+    margin-top: 1rem;
+  }
+
+  #reptile_agents {
+    width: 20%;
+    margin-left: 37rem;
+  }
+
+  .Solana {
+    font-size: x-large;
+  }
+
+  .contact-links {
+    margin-top: -1rem;
+  }
+
+  #coin {
+    font-size: 5rem;
+  }
+
+  .hashtag {
+    font-size: x-large;
+  }
+
+  h3 {
+    margin-top: -2rem;
+  }
+  /*CSS rules for landscape orientation on mobile devices */
+  /* Add your styles here */
+}
+
+/* Pixel 4 portrait */
+
+@media only screen and (min-device-width: 353px) and (max-device-height: 745px) and (orientation: portrait) {
+  #demon {
+    width: 60%;
+    margin-top: -15rem;
+  }
+
+  #reptile_agents {
+    width: 60%;
+  }
+
+  .Solana {
+    font-size: x-large;
+  }
+
+  .contact-links {
+    margin-top: -1rem;
+  }
+
+  #coin {
+    font-size: 5rem;
+  }
+
+  .hashtag {
+    font-size: x-large;
+  }
+
+  h3 {
+    margin-top: -2rem;
+  }
+  /*CSS rules for landscape orientation on mobile devices */
+  /* Add your styles here */
+}
+
+/* Pixel 4 landscape */
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 750px) and (orientation: landscape) {
+  #demon {
+    width: 50%;
+    margin-top: 5rem;
+  }
+
+  #reptile_agents {
+    width: 20%;
+    margin-left: 30rem;
+    margin-top: 1rem;
+  }
+
+  .Solana {
+    font-size: x-large;
+  }
+
+  .contact-links {
+    margin-top: -1rem;
+  }
+
+  #coin {
+    font-size: 4rem;
+  }
+
+  .hashtag {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-size: xx-large;
+  }
+
+  h3 {
+    margin-top: -2rem;
+  }
+  /*CSS rules for landscape orientation on mobile devices */
+  /* Add your styles here */
+}
+
+
+
+
+
+
+
+
